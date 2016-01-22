@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To-do-express</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="cs/style.css"> -->
+</head>
+<body>
+	<div class="container">
+		<h1>To-Do-List-Express</h1>
+		Task: <input type="text" id="item">
+		Date: <input type="text" id="date">
+		<input class="btn btn-default" type="button" value="Add" id="addItem">
+
+		<div class="row" id="taskList">
+			<table class="table table-condensed">
+				<thead>
+				  <tr>
+				  	<th>Task</th>
+				  	<th>Due</th>
+				  	<th>Complete</th>
+				  	<th>Remove</th>
+				  </tr>
+				</thead>
+				<tbody id="contactList">
+					<tr id="template">
+						<td class="itemOutput"></td>
+						<td class="dateOutput"></td>
+						<td><a class="edit">Edit</a></td> 
+						<td><a class="delete">Delete</a></td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
