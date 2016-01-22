@@ -18,6 +18,7 @@ function addItem(e) {
 	e.preventDefault();
 	var newItem = $('#item').val();
 	var newDate = moment($('#date').val()).format('ll');
+	$('form').trigger('reset');
 	$.post('./items/add', {
 		item: newItem,
 		date: newDate,
