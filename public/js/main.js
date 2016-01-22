@@ -66,7 +66,7 @@ function appendItem(data) {
 
 function appendComplete(bool, $row) {
 	if (bool) {
-		$row.css('background', 'green');
+		$row.css('background', '#f5f5f0');
 		$row.find('.toggle').prop('checked', true);
 	} else {
 		$row.css('background', 'none');

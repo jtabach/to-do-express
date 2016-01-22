@@ -2,8 +2,17 @@
 	display: none;
 }
 
+body {
+	background: #e5eeff;
+}
+
 .container {
 	width: 730px;
+	
+}
+
+h1 {
+	text-align: center;
 }
 
 tbody {
@@ -11,13 +20,17 @@ tbody {
 	/*font: 'Shadows Into Light Two', Helvetica, Sans-serif;*/
 	/*font: 'Sue Ellen Francisco', Helvetica, Sans-serif;*/
 	font-family: 'Shadows Into Light Two', cursive;
-	font-size: 18px;
+	font-size: 16px;
 }
 
+#paper {
+	padding-bottom: 50px;
+	background: red;
 
+}
 
 th {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 table {
@@ -25,10 +38,12 @@ table {
 	opacity: 0.9;
 	position: relative;
 	width: 650px;
+	/*margin-top: -10px;*/
+
 }
 
 th {
-	padding: 20px 10px 10px 10px;
+	padding: 15px;
 	border-bottom: 1px double gray;
 }
 
@@ -38,11 +53,12 @@ td {
 
 #clipBoard {
 	background: linear-gradient(
-      rgba(0, 0, 0, 0.4), 
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.45), 
+      rgba(0, 0, 0, 0.45)
     ), url('../img/wood.png');
-	padding: 40px 40px 120px 40px;
-	border-radius: 30px
+	padding: 40px 40px 80px 40px;
+	border-radius: 30px;
+	box-shadow: 00 2em 2em #777;
 }
 
 #clip {
