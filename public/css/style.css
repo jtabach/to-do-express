@@ -67,6 +67,10 @@ input {
 	padding: 2px 13px;
 }
 
+#addItem:hover {
+	color: #0072e6;
+}
+
 #deleteCompleted {
 	float: right;
 	margin-top: 15px;
@@ -76,7 +80,7 @@ input {
 	color: #004c99;
 }
 
-#addItem:hover {
+#deleteCompleted:hover {
 	color: #0072e6;
 }
 
