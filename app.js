@@ -30,14 +30,17 @@ app.get('/items', (req, res, next) => {
 });
 
 app.post('/items', (req, res, next) => {
+	console.log(req.body)
 	fs.readFile('./list.json', (err, data) => {
 		if (err) return res.status(400).send(err);
 		var arr = JSON.parse(data);
-		var name = req.body.name;
-		arr.push(name);
+		console.log(arr);
+		var item = req.body.item;
+		var date = req.body.date;
+		arr.push({"item": item, "date": date});
 		fs.writeFile('./list.json', JSON.stringify(arr), (err, data) => {
 			if (err) return res.status(400).send(err);
-			res.send(name + ' received.\n');
+			res.send([item, date]);
 		});
 	})
 });
