@@ -30,7 +30,6 @@ app.get('/items', (req, res, next) => {
 });
 
 app.post('/items/add', (req, res, next) => {
-	console.log(req.body)
 	fs.readFile('./list.json', (err, data) => {
 		if (err) return res.status(400).send(err);
 		var arr = JSON.parse(data);
@@ -46,14 +45,14 @@ app.post('/items/add', (req, res, next) => {
 });
 
 app.post('/items/delete', (req, res, next) => {
-	console.log(req.body)
 	fs.readFile('./list.json', (err, data) => {
 		if (err) return res.status(400).send(err);
 		var arr = JSON.parse(data);
-		console.log(arr);
+		var index = parseInt(req.body.index);
+		var removed = arr.splice(index, 1);
 		fs.writeFile('./list.json', JSON.stringify(arr), (err, data) => {
 			if (err) return res.status(400).send(err);
-			res.send([item, date]);
+			res.send(removed);
 		});
 	})
 })

@@ -40,24 +40,22 @@ function populateItems() {
 }
 
 function deleteItem() {
-	var index  = $(this).closest('tr').index() - 1;
+	var $this = $(this);
+	var index  = $this.closest('tr').index() - 1;
 	console.log(index);
 
-	// $.post('./items/delete', {
-	// 	item: newItem,
-	// 	date: newDate
-	// })
-	// .success(function(data) {
-	// 	console.log(data);
-	// 	var $task = $('#template').clone();
-	// 	$task.removeAttr('id');
-	// 	$task.children('.itemOutput').text(data[0]);
-	// 	$task.children('.dateOutput').text(data[1]);
-	// 	$('#taskList').append($task);
-	// })
-	// .fail(function(err) {
-	// 	alert('something went wrong');
-	// });
+	$.post('./items/delete', {"index": index})
+	.success(function(data) {
+		$this.closest('tr').remove();
+		// var $task = $('#template').clone();
+		// $task.removeAttr('id');
+		// $task.children('.itemOutput').text(data[0]);
+		// $task.children('.dateOutput').text(data[1]);
+		// $('#taskList').append($task);
+	})
+	.fail(function(err) {
+		alert('something went wrong');
+	});
 }
 
 
