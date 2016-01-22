@@ -33,7 +33,6 @@ app.post('/items/add', (req, res, next) => {
 	fs.readFile('./list.json', (err, data) => {
 		if (err) return res.status(400).send(err);
 		var arr = JSON.parse(data);
-		console.log(arr);
 		var item = req.body.item;
 		var date = req.body.date;
 		var complete = req.body.complete

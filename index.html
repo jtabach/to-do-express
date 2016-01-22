@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>To-do-express</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,24 +15,27 @@
 		<input class="btn btn-default" type="button" value="Add" id="addItem">
 
 		<div class="row" id="taskTable">
-			<table class="table table-condensed">
-				<thead>
-				  <tr>
-				  	<th>Task</th>
-				  	<th>Due</th>
-				  	<th>Complete</th>
-				  	<th>Remove</th>
-				  </tr>
-				</thead>
-				<tbody id="taskList">
-					<tr id="template">
-						<td class="itemOutput"></td>
-						<td class="dateOutput"></td>
-						<td><div class="checkbox"><label><input type="checkbox" class="toggle"> Done</label></div></td> 
-						<td><a class="delete">Delete</a></td> 
-					</tr>
-				</tbody>
-			</table>
+			<div id="clipBoard">
+				<table>
+					<div id="clip"></div>
+					<thead>
+					  <tr>
+					  	<th>Task</th>
+					  	<th>Due</th>
+					  	<th>Complete</th>
+					  	<th>Remove</th>
+					  </tr>
+					</thead>
+					<tbody id="taskList">
+						<tr id="template">
+							<td class="itemOutput col-sm-7"></td>
+							<td class="dateOutput col-sm-2"></td>
+							<td class="col-sm-2"><div class="checkbox"><label><input type="checkbox" class="toggle"> Done</label></div></td> 
+							<td class="col-sm-1"><a class="delete">Delete</a></td> 
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>

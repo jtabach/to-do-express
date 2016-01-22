@@ -9,7 +9,6 @@ $(document).ready(function() {
 
 function populateItems() {
 	$.get('./items', function(data) {
-		console.log(data);
 		appendItem(data);
 	})
 }
@@ -45,11 +44,9 @@ function deleteItem() {
 function toggleItem() {
 	var $tr = $(this).closest('tr');
 	var index = $tr.index() - 1;
-	console.log(index);
 	$.post('./items/toggle', {"index": index})
-	.success(function(data) {
-		console.log('checked');
-		appendComplete(data, $tr);
+	.success(function(bool) {
+		appendComplete(bool, $tr);
 	})
 	.fail(function(err) {
 		alert('something went wrong');
@@ -67,10 +64,9 @@ function appendItem(data) {
 	});
 }
 
-function appendComplete(data, $row) {
-	if (data === true) {
+function appendComplete(bool, $row) {
+	if (bool) {
 		$row.css('background', 'green');
-		console.log($row.children('.toggle'));
 		$row.find('.toggle').prop('checked', true);
 	} else {
 		$row.css('background', 'none');
