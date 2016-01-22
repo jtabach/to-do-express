@@ -1,3 +1,5 @@
+(function() {
+
 'use strict';
 
 $(document).ready(function() {
@@ -90,7 +92,6 @@ function deleteCompleted() {
 			indexes.push(index);
 			$(this).remove();
 		});
-		console.log(i);
 		$.post('./items/delete', {"index": indexes[i]})
 		.success(function(data) {
 			i++;
@@ -117,4 +118,4 @@ function deleteLoop() {
 	}
 }
 
-
+})()
