@@ -5,6 +5,7 @@ $(document).ready(function() {
 	$('form').submit(addItem);
 	$('body').on('click','.delete', deleteItem);
 	$('body').on('click','.toggle', toggleItem);
+	$('#deleteCompleted').click(deleteCompleted);
 });
 
 function populateItems() {
@@ -76,3 +77,43 @@ function appendComplete(bool, $row) {
 		$row.children().css('text-decoration', 'none');
 	}
 }
+
+var indexes = [];
+var i = 0;
+
+function deleteCompleted() {
+	indexes = [];
+	if ($('tr input:checked').closest('tr').length !== 0) {
+		$('tr input:checked').closest('tr').each(function() {
+			var index = $(this).index() - 1;
+			indexes.push(index);
+			$(this).remove();
+		});
+		console.log(i);
+		$.post('./items/delete', {"index": indexes[i]})
+		.success(function(data) {
+			i++;
+			deleteLoop();
+		})
+		.fail(function(err) {
+			alert('something went wrong');
+		});
+	}
+}
+
+function deleteLoop() {
+	if (i < indexes.length){
+		$.post('./items/delete', {"index": indexes[i]})
+		.success(function(data) {
+			i++;
+			deleteLoop();
+		})
+		.fail(function(err) {
+			alert('something went wrong');
+		});
+	} else {
+		return i = 0;
+	}
+}
+
+

@@ -50,10 +50,10 @@ app.post('/items/delete', (req, res, next) => {
 		if (err) return res.status(400).send(err);
 		var arr = JSON.parse(data);
 		var index = parseInt(req.body.index);
-		var removed = arr.splice(index, 1);
+		arr.splice(index, 1);
 		fs.writeFile('./list.json', JSON.stringify(arr), (err, data) => {
 			if (err) return res.status(400).send(err);
-			res.send(removed);
+			res.send('removed');
 		});
 	})
 })
