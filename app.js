@@ -36,10 +36,11 @@ app.post('/items/add', (req, res, next) => {
 		console.log(arr);
 		var item = req.body.item;
 		var date = req.body.date;
-		arr.push({"item": item, "date": date});
+		var complete = req.body.complete
+		arr.push({"item": item, "date": date, "complete": false});
 		fs.writeFile('./list.json', JSON.stringify(arr), (err, data) => {
 			if (err) return res.status(400).send(err);
-			res.send([item, date]); // TODO could be object
+			res.send([{"item": item, "date": date}]); // TODO could be object
 		});
 	})
 });
@@ -53,6 +54,23 @@ app.post('/items/delete', (req, res, next) => {
 		fs.writeFile('./list.json', JSON.stringify(arr), (err, data) => {
 			if (err) return res.status(400).send(err);
 			res.send(removed);
+		});
+	})
+})
+
+app.post('/items/toggle', (req, res, next) => {
+	fs.readFile('./list.json', (err, data) => {
+		if (err) return res.status(400).send(err);
+		var arr = JSON.parse(data);
+		var index = parseInt(req.body.index);
+		if (arr[index].complete === false) {
+			arr[index].complete = true;
+		} else {
+			arr[index].complete = false;
+		}
+		fs.writeFile('./list.json', JSON.stringify(arr), (err, data) => {
+			if (err) return res.status(400).send(err);
+			res.send(arr[index].complete);
 		});
 	})
 })

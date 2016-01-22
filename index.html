@@ -10,7 +10,7 @@
 	<div class="container">
 		<h1>To-Do-List-Express</h1>
 		Task: <input type="text" id="item">
-		Date: <input type="text" id="date">
+		Date: <input type="date" value="2016-01-22" id="date">
 		<input class="btn btn-default" type="button" value="Add" id="addItem">
 
 		<div class="row" id="taskTable">
@@ -27,7 +27,7 @@
 					<tr id="template">
 						<td class="itemOutput"></td>
 						<td class="dateOutput"></td>
-						<td><div class="checkbox"><label><input type="checkbox"> Done</label></div></td> 
+						<td><div class="checkbox"><label><input type="checkbox" class="toggle"> Done</label></div></td> 
 						<td><a class="delete">Delete</a></td> 
 					</tr>
 				</tbody>
