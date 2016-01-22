@@ -3,33 +3,86 @@
 }
 
 body {
+	margin-top: 50px;
 	background: #e5eeff;
+	font-family: 'Loved by the King', cursive;
 }
 
 .container {
 	width: 730px;
-	
+	position: relative;
 }
 
 h1 {
+	position: absolute;
+	z-index: 2;
 	text-align: center;
+	margin: 120px 270px;
+	font-size: 30px
+}
+input {
+	background-image: url('../img/seamless_paper_texture.png');
+}
+
+#itemInput {
+	float: left;
+	margin-top: 30px;
+}
+
+#itemInput input {
+	width: 250px;
+	height: 30px;
+	font-size: 18px;
+}
+
+#itemInput label {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#dateInput {
+	float: left;
+	margin: 30px 0 0 120px;
+}
+
+#dateInput input {
+	width: 150px;
+	height: 30px;
+	font-size: 20px;
+}
+
+#dateInput label {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#addItem {
+	float: left;
+	z-index: 15;
+	margin: 30px 0 0 20px;
+	height: 30px;
+	font-size: 20px;
+	background: #cccccc;
+	color: #004c99;
+	padding: 2px 13px;
+}
+
+#addItem:hover {
+	color: #0072e6;
+}
+
+.delete {
+	color: #004c99;
+}
+
+.delete:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #0072e6;
 }
 
 tbody {
-	/*font-family: 'Just Another Hand', cursive;*/
-	/*font: 'Shadows Into Light Two', Helvetica, Sans-serif;*/
-	/*font: 'Sue Ellen Francisco', Helvetica, Sans-serif;*/
 	font-family: 'Shadows Into Light Two', cursive;
-	font-size: 16px;
-}
-
-#paper {
-	padding-bottom: 50px;
-	background: red;
-
-}
-
-th {
 	font-size: 16px;
 }
 
@@ -38,13 +91,13 @@ table {
 	opacity: 0.9;
 	position: relative;
 	width: 650px;
-	/*margin-top: -10px;*/
-
 }
 
 th {
+	font-size: 24px;
 	padding: 15px;
 	border-bottom: 1px double gray;
+	font-weight: bold;
 }
 
 td {
@@ -59,6 +112,7 @@ td {
 	padding: 40px 40px 80px 40px;
 	border-radius: 30px;
 	box-shadow: 00 2em 2em #777;
+	margin-top: 100px;
 }
 
 #clip {

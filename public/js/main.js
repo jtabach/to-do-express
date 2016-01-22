@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 	populateItems();
-	$('#addItem').click(addItem);
+	$('form').submit(addItem);
 	$('body').on('click','.delete', deleteItem);
 	$('body').on('click','.toggle', toggleItem);
 });
@@ -13,9 +13,10 @@ function populateItems() {
 	})
 }
 
-function addItem() {
+function addItem(e) {
+	e.preventDefault();
 	var newItem = $('#item').val();
-	var newDate = $('#date').val();
+	var newDate = moment($('#date').val()).format('ll');
 	$.post('./items/add', {
 		item: newItem,
 		date: newDate,
@@ -68,8 +69,10 @@ function appendComplete(bool, $row) {
 	if (bool) {
 		$row.css('background', '#f5f5f0');
 		$row.find('.toggle').prop('checked', true);
+		$row.children().css('text-decoration', 'line-through');
 	} else {
 		$row.css('background', 'none');
 		$row.find('.toggle').prop('checked', false);
+		$row.children().css('text-decoration', 'none');
 	}
 }

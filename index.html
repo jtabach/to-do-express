@@ -5,15 +5,25 @@
 	<title>To-do-express</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Loved+by+the+King' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="container">
 		<h1>To-Do-List-Express</h1>
-		Task: <input type="text" id="item">
-		Date: <input type="date" value="2016-01-22" id="date">
-		<input class="btn btn-default" type="button" value="Add" id="addItem">
-
+		<form action="">
+			<div id="inputs">
+				<div id="itemInput">
+					<label for="item">Task: </label>
+					<input type="text" id="item" required>
+				</div>
+				<div id="dateInput">
+					<label for="date">Date: </label>
+					<input type="date" value="2016-01-22" id="date" required>
+				</div>
+				<input class="btn btn-default" type="submit" value="Add Task" id="addItem">
+			</div>
+		</form>
 		<div class="row" id="taskTable">
 			<div id="clipBoard">
 				<table>
@@ -28,8 +38,8 @@
 					</thead>
 					<tbody id="taskList">
 						<tr id="template">
-							<td class="itemOutput col-sm-7"></td>
-							<td class="dateOutput col-sm-2"></td>
+							<td class="itemOutput col-sm-6"></td>
+							<td class="dateOutput col-sm-3"></td>
 							<td class="col-sm-2"><div class="checkbox"><label><input type="checkbox" class="toggle"> Done</label></div></td> 
 							<td class="col-sm-1"><a class="delete">Delete</a></td> 
 						</tr>
@@ -39,6 +49,7 @@
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="http://momentjs.com/downloads/moment.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
