@@ -40,7 +40,7 @@ app.post('/items/add', (req, res, next) => {
 		arr.push({"item": item, "date": date, "complete": false});
 		fs.writeFile('./list.json', JSON.stringify(arr), (err, data) => {
 			if (err) return res.status(400).send(err);
-			res.send([{"item": item, "date": date}]); // TODO could be object
+			res.send([{"item": item, "date": date}]);
 		});
 	})
 });
