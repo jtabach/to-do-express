@@ -38,10 +38,18 @@
 					</thead>
 					<tbody id="taskList">
 						{{#each tasks}}
-						<tr>
-							<td class="itemOutput col-sm-6">{{this.item}}</td>
-							<td class="dateOutput col-sm-3">{{this.date}}</td>
-							<td class="col-sm-2"><div class="checkbox"><label><input type="checkbox" class="toggle"> Done</label></div></td> 
+						
+							{{#if this.complete}}
+								<tr style="background-color:#f5f5f0">
+									<td class="itemOutput col-sm-6" style="text-decoration:line-through">{{this.item}}</td>
+									<td class="dateOutput col-sm-3" style="text-decoration:line-through">{{this.date}}</td>
+									<td class="col-sm-2"><div class="checkbox"><label><input type="checkbox" class="toggle" checked> Done</label></div></td>
+							{{else}}
+								<tr>
+									<td class="itemOutput col-sm-6">{{this.item}}</td>
+									<td class="dateOutput col-sm-3">{{this.date}}</td>
+									<td class="col-sm-2"><div class="checkbox"><label><input type="checkbox" class="toggle"> Done</label></div></td>
+							{{/if}}
 							<td class="col-sm-1"><a class="delete">Delete</a></td> 
 						</tr>
 						{{/each}}

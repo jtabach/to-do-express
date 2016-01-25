@@ -36,7 +36,7 @@ function addItem(e) {
 
 function deleteItem() {
 	var $tr = $(this).closest('tr');
-	var index  = $tr.index() - 1;
+	var index  = $tr.index();
 	$.post('./items/delete', {"index": index})
 	.success(function(data) {
 		$tr.remove();
@@ -48,7 +48,7 @@ function deleteItem() {
 
 function toggleItem() {
 	var $tr = $(this).closest('tr');
-	var index = $tr.index() - 1;
+	var index = $tr.index();
 	$.post('./items/toggle', {"index": index})
 	.success(function(bool) {
 		appendComplete(bool, $tr);
@@ -88,7 +88,7 @@ function deleteCompleted() {
 	indexes = [];
 	if ($('tr input:checked').closest('tr').length !== 0) {
 		$('tr input:checked').closest('tr').each(function() {
-			var index = $(this).index() - 1;
+			var index = $(this).index();
 			indexes.push(index);
 			$(this).remove();
 		});
