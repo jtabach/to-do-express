@@ -9,6 +9,7 @@ var app = express();
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var moment = require('moment');
+var path = require('path');
 
 // configure general middleware
 app.use(logger('dev'));
@@ -16,11 +17,16 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+app.set('views', path.join(__dirname,'./views'));
+app.set('view engine', 'hbs');
+
+app.use('/', require('./routes/index'));
+
 // route definitions
-app.get('/', (req, res) => {
-	var html = fs.readFileSync('./index.html').toString();
-	res.send(html);
-});
+// app.get('/', (req, res) => {
+// 	var html = fs.readFileSync('./index.html').toString();
+// 	res.send(html);
+// });
 
 app.get('/items', (req, res, next) => {
 	fs.readFile('./list.json', (err, data) => {

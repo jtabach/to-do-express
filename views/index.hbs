@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>To-Do-List-Express</h1>
+		<h1>{{title}}</h1>
 		<form action="">
 			<div id="inputs">
 				<div id="itemInput">
@@ -37,12 +37,14 @@
 					  </tr>
 					</thead>
 					<tbody id="taskList">
-						<tr id="template">
-							<td class="itemOutput col-sm-6"></td>
-							<td class="dateOutput col-sm-3"></td>
+						{{#each tasks}}
+						<tr>
+							<td class="itemOutput col-sm-6">{{this.item}}</td>
+							<td class="dateOutput col-sm-3">{{this.date}}</td>
 							<td class="col-sm-2"><div class="checkbox"><label><input type="checkbox" class="toggle"> Done</label></div></td> 
 							<td class="col-sm-1"><a class="delete">Delete</a></td> 
 						</tr>
+						{{/each}}
 					</tbody>
 				</table>
 				<input class="btn btn-default" type="button" value="Remove Completed Tasks" id="deleteCompleted">
@@ -53,4 +55,4 @@
 	<script src="http://momentjs.com/downloads/moment.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
-</html> -->
+</html>
